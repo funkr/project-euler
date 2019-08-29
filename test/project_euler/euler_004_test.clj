@@ -1,4 +1,4 @@
-(ns project-euler.test-euler-004
+(ns project-euler.euler_004_test
   (:require [clojure.test :refer :all]
             [project-euler.euler-004 :refer :all]))
 
