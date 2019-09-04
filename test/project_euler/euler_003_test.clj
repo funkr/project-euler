@@ -8,6 +8,10 @@
     (is (= (eulib/prime? 71) true))
     (is (= (eulib/prime? 70) false))))
 
+(deftest euler-project-prime-numbers
+  (testing "Check the lazy list"
+    (is (= (nth  ((eulib/prime-numbers)) 6) 17))))
+
 (deftest euler-project.euler-003-13195
   (testing "The example with 13195"
     (is (= (eulib/prime-factorial 13195) '(29 13 7 5)))))

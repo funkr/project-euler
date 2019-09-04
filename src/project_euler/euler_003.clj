@@ -5,14 +5,14 @@
 (defn ttt [x]
   "A bloody imperative style function to get some how the prime factors.
   Left as artifact of my victory over my weak brain. :)"
-  (let [to-test (atom x)                                    ;to-test (atom 13195)
+  (let [to-test (atom x)
         pkf (eulib/get-prime-list-keeper)
         idx (atom 0)]
     (do
       (while (not= @to-test 1)
         (if (= (mod @to-test (get (pkf) @idx)) 0)
           (do (swap! to-test / (get (pkf) @idx))
-              (print @to-test "|" (get (pkf) @idx) "\n"))
+              (print @to-test "|" (get (pkf) @idx) ""))
           (do (swap! idx inc))))
       (print "kk" @to-test "|" @idx "llll"))))
 

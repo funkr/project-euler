@@ -47,3 +47,8 @@
 (defn prime? [to-test]
   "Check if a given number is prime."
   (not (nil? (some #{to-test} (take-while #(<= %1 to-test) ((prime-numbers)))))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defn isadjacent [a b]
+  (or (= (inc a) b) (= (dec a) b)))
