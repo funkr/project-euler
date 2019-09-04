@@ -5,13 +5,6 @@
 (defn to-sequence [seq-string]
   (map (fn [c] (Character/digit c 10)) (seq seq-string)))
 
-(defn slicer [step nr-seq]
-  (let [limit (- (count nr-seq) step) idx (atom 0) all-list (atom '())]
-    (while (< limit idx)
-      (do (swap! all-list (conj @all-list (subvec @idx (+ @idx step))))
-          (swap! idx (inc @idx))))
-    @all-list))
-
 (defn generate-slice-idx [total step]
   (let [limit (inc (- total step))]
     (map (fn [x] (cons x (list (+ x step)))) (range limit))))
