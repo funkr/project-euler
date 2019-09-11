@@ -1,6 +1,6 @@
 (ns project-euler.euler-007-test
   (:require [clojure.test :refer :all])
-  (:require [project-euler.euler-006 :refer [euler-006]]
+  (:require [project-euler.euler-007 :refer [euler-007]]
             [euler-project.lib :as eulib]))
 
 (deftest euler-007-test
