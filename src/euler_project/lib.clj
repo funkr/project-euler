@@ -52,3 +52,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defn isadjacent [a b]
   (or (= (inc a) b) (= (dec a) b)))
+
+
+(defn number-summary
+  "Computes a summary of the arithmetic properties of a number, as a data structure."
+  [n]
+  (let [proper-divisors (into (sorted-set)
+                              (filter
+                                (fn [d]
+                                  (zero? (rem n d)))
+                                (range 1 (inc n))))
+        divisors-sum (apply + proper-divisors)]
+    {:n n
+     :proper-divisors proper-divisors
+     :even? (even? n)
+     :prime? (= proper-divisors #{1})
+     :perfect-number? (= divisors-sum n)}))
