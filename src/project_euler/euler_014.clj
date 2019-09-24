@@ -2,10 +2,11 @@
 
 (defn collatz-sequence [x]
   "Get Collatz Sequence for x"
-  (if (< x 1) '()
-              (if (= 1 x) (cons x nil)
-                          (if (even? x) (lazy-seq (cons x (collatz-sequence (/ x 2))))
-                                        (lazy-seq (cons x (collatz-sequence (inc (* 3 x)))))))))
+  (let [nx (if (even? x) (/ x 2) (inc (* 3 x)))]
+    (cond
+      (< x 1) '()
+      (= 1 x) (cons x nil)
+      :else (lazy-seq (cons x (collatz-sequence nx))))))
 
 (defn euler-014 [limit]
   "The following iterative sequence is defined for the set of positive integers:
