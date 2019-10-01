@@ -63,8 +63,25 @@
                                   (zero? (rem n d)))
                                 (range 1 (inc n))))
         divisors-sum (apply + proper-divisors)]
-    {:n n
+    {:n               n
      :proper-divisors proper-divisors
-     :even? (even? n)
-     :prime? (= proper-divisors #{1})
+     :even?           (even? n)
+     :prime?          (= proper-divisors #{1})
      :perfect-number? (= divisors-sum n)}))
+
+
+;(defn factorial [n]
+;  (loop [current n
+;         next (dec current)
+;         total 1]
+;    (if (> current 1)
+;      (recur next (dec next) (* total current)) total)))
+
+(defn factorial
+  [n]
+  (reduce * (bigint 1) (range 1 (inc n))))
+
+(defn permutations [x y]
+  "Return the permutation x over y"
+  (let [x1 (- x y)]
+    (/ (factorial x) (* (factorial x1) (factorial x1)))))
