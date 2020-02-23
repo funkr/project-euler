@@ -12,7 +12,6 @@
   By considering the terms in the Fibonacci sequence whose values do not exceed four million,
   find the sum of the even-valued terms."
   [upper-limit]
-;  (apply + (filter even? (take-while (fn [x] (< x upper-limit)) fib-seq-seq))))
   (apply + (filter even? (take-while #(<= % upper-limit) fib-seq-seq))))
 
 (defn fibionacci [x]
@@ -20,13 +19,4 @@
     0
     (recur (dec 1))))
 
-(def next-fib
-  (let [x (atom 0)
-        y (atom 1)
-        z (atom 0)]
-    (fn []
-      (reset! z (+ @x @y))
-      (reset! x @y)
-      (reset! y @z)
-      (+ @z 0))))
 

@@ -30,8 +30,4 @@
   (testing "The actueal solving function"
            (is (= (euler-002 4000000) 4613732))))
 
-(deftest test-next-fib
-  (testing "Get fib numbers"
-           (is (= (next-fib) 1))
-           (is (= (next-fib) 2))
-           (is (= (next-fib) 3))))
+
