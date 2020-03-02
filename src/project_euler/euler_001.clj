@@ -6,4 +6,10 @@
   we get 3, 5, 6 and 9. The sum of these multiples is 23.
   Find the sum of all the multiples of 3 or 5 below 1000."
   [limit]
-  (reduce + (filter (fn [x] (or (= 0 (mod x 3)) (= 0 (mod x 5)))) (range limit))))
+  (reduce +
+          (filter (fn [x] (or (= 0 (mod x 3)) (= 0 (mod x 5)))) (range limit))))
+
+(defn euler-001-a [limit]
+  (->> (range limit)
+       (filter #(or (= 0 (mod % 3)) (= 0 (mod % 5))))
+       (reduce +)))

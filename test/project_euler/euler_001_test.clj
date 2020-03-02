@@ -21,3 +21,23 @@
 (deftest test-100000
   (testing "Get answer for 100000"
            (is (= (euler-001 100000) 2333316668))))
+
+(deftest test-10-a
+  (testing "Scale to example"
+           (is (= (euler-001-a 10) 23))))
+
+(deftest test-100-a
+  (testing "Prove example"
+           (is (= (euler-001-a 100) 2318))))
+
+(deftest test-1000-a
+  (testing "Get answer for 1000"
+           (is (= (euler-001-a 1000) 233168))))
+
+(deftest test-10000-a
+  (testing "Get answer for 10000"
+           (is (= (euler-001-a 10000) 23331668))))
+
+(deftest test-100000-a
+  (testing "Get answer for 100000"
+           (is (= (euler-001-a 100000) 2333316668))))
