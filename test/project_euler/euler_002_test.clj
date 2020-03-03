@@ -29,5 +29,3 @@
 (deftest test-problem-002
   (testing "The actueal solving function"
            (is (= (euler-002 4000000) 4613732))))
-
-
