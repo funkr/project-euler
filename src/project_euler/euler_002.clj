@@ -14,9 +14,11 @@
   [upper-limit]
   (apply + (filter even? (take-while #(<= % upper-limit) fib-seq-seq))))
 
-(defn fibionacci [x]
-  (if (= x 0)
-    0
-    (recur (dec 1))))
-
-
+(def fib-recur
+  (fn fib
+    ([n] (fib n 0))
+    ([n accumulator]
+     (if (zero? n)
+       accumulator
+       ; we're done
+       (recur (dec n) (+ accumulator n))))))
