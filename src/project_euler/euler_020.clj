@@ -1,4 +1,5 @@
-(ns project-euler.euler-020)
+(ns project-euler.euler-020
+  (:require [euler-project.lib :as eulib]))
 
 
 (defn factorial [n]
@@ -12,4 +13,4 @@
   and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
   Find the sum of the digits in the number 100!"
-  (reduce + (map #(Character/digit % 10) (str (factorial limit)))))
+  (reduce + (map #(Character/digit % 10) (str (eulib/factorial limit)))))

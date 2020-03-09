@@ -56,7 +56,7 @@
 
 (defn number-summary
   "Computes a summary of the arithmetic properties of a number, as a data structure."
-  [n]
+  [n ]
   (let [proper-divisors (into (sorted-set)
                               (filter
                                 (fn [d]
@@ -67,6 +67,7 @@
      :proper-divisors proper-divisors
      :even?           (even? n)
      :prime?          (= proper-divisors #{1})
+     :divisors-sum     divisors-sum
      :perfect-number? (= divisors-sum n)}))
 
 
