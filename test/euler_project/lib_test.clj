@@ -24,4 +24,4 @@
   (is (= (permutations 40 20) 137846528820N)))
 
 (deftest prime-numbers-1
-  (is   (time (= 10 (last (take 5000 ((prime-numbers))))))))
+  (is   (= 97 (last (take 25 ((prime-numbers)))))))

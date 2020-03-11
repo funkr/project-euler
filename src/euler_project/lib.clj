@@ -15,8 +15,8 @@
 
   [2 3 5 7] -> 11"
   (let [last-prime (+ 2 (last primes))
-        end (* last-prime last-prime)]
-    (first (take 1 (filter #(next-prime? primes %1) (range last-prime end 2))))))
+        end (* 2 last-prime)]
+    (first (filter #(next-prime? primes %1) (range last-prime end 2)))))
 
 (defn get-prime-list-keeper []
   "It creates a function which creates an array with prime numbers.
@@ -70,13 +70,6 @@
      :divisors-sum     divisors-sum
      :perfect-number? (= divisors-sum n)}))
 
-
-;(defn factorial [n]
-;  (loop [current n
-;         next (dec current)
-;         total 1]
-;    (if (> current 1)
-;      (recur next (dec next) (* total current)) total)))
 
 (defn factorial
   [n]

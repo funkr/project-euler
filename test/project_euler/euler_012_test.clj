@@ -25,4 +25,4 @@
 
 (deftest euler-012-test-result
   "get result for 500"
-  (is (= (:proper-divisors (euler-012 500)) 76576500)))
+  (is (= (reduce max (:proper-divisors (euler-012 500))) 76576500)))
