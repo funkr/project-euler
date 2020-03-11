@@ -2,22 +2,6 @@
   (:require [clojure.test :refer :all])
   (:require [project-euler.euler-022 :refer :all]))
 
-(deftest create-value-list-1
-  "Get the data cleaning going"
-  (is (= 5163 (count (create-value-list)))))
-
-(deftest create-value-list-2
-  "Get the data cleaning going"
-  (is
-    (= '([1 49 "AARON"] [2 35 "ABBEY"]) (take 2 (create-value-list)))))
-
-(deftest create-value-list-3
-  "Get the data cleaning going"
-  (is
-   (= 49714
-      (* (first (nth (create-value-list) 937))
-         (second (nth (create-value-list) 937))))))
-
 (deftest clean-data-1
   "Make that mess spick and span"
   (is

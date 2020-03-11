@@ -9,12 +9,8 @@
 
 (defn calc-word-value [word]
   "Assuming that the word is capitialised"
-  (let [w (map #(- (int %) 64) (seq word))]
-    (reduce + w)))
-
-(defn create-value-list []
-  (let [names (clean-data "p022_names.txt")]
-    (map vector (map inc (range)) (map calc-word-value names) names)))
+  (let [word-value (map #(- (int %) 64) (seq word))]
+    (reduce + word-value)))
 
 (defn euler-022 []
   "
@@ -29,4 +25,6 @@
 
   What is the total of all the name scores in the file?
   "
-  (reduce + (map #(* (first %) (second %)) (create-value-list))))
+  (let [names (clean-data "p022_names.txt")]
+    (reduce +
+            (map-indexed (fn [idx name] (* (inc idx) (calc-word-value name))) names))))
