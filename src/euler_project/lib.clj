@@ -8,7 +8,10 @@
   [2 3 5 7] 9 -> false
   [2 3 5 7] 11 -> true
   [2 3 5 7] 12 not allowed!"
-  (empty? (filter #(= (mod nc %1) 0) primes)))
+  (empty? (filter #(do (println % nc primes (mod nc %1)) (= (mod nc %1) 0)) primes)))
+
+(defn next-prime-a? [primes nc]
+  (reduce (fn [res val] (if (= (mod nc val) 0) (reduced false) true)) primes))
 
 (defn next-prime [primes]
   "Produces the next prime number.
@@ -16,7 +19,7 @@
   [2 3 5 7] -> 11"
   (let [last-prime (+ 2 (last primes))
         end (* 2 last-prime)]
-    (first (filter #(next-prime? primes %1) (range last-prime end 2)))))
+    (first (filter #(next-prime-a? primes %1) (range last-prime end 2)))))
 
 (defn get-prime-list-keeper []
   "It creates a function which creates an array with prime numbers.
@@ -46,7 +49,8 @@
 
 (defn prime? [to-test]
   "Check if a given number is prime."
-  (not (nil? (some #{to-test} (take-while #(<= %1 to-test) ((prime-numbers)))))))
+  (boolean
+    (some #{to-test} (take-while #(<= %1 to-test) ((prime-numbers))))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -24,4 +24,10 @@
   (is (= (permutations 40 20) 137846528820N)))
 
 (deftest prime-numbers-1
-  (is   (= 97 (last (take 25 ((prime-numbers)))))))
+  (is   (= 104729  (last (take 10000 ((prime-numbers)))))))
+
+(deftest is-prime-1
+  (is   (= #{2 3 5 7}  (into (sorted-set) (filter #(euler-project.lib/prime? %)(range 1 10))))))
+
+(deftest is-prime-2
+  (is   (true?  (some #(= 11 %) (into () (take 100 ((prime-numbers)) )) ))))
